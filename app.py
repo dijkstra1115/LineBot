@@ -15,18 +15,14 @@ import openai
 import time
 #======python的函數庫==========
 
-CHANNEL_ACCESS_TOKEN = 'brFhCb98LXeCUWy2cdwrkKosskHm0FKUWZ44M5NpCXHJD14qErpJA4uqbShlk5wZSUCuQxbwqpZGmhqe0zWPGOSHakTwqDXE/TS38ILT9V4SY0PpqAtXo0SpciHtnPYBMgUB/dUku73J/gTKY/TeGAdB04t89/1O/w1cDnyilFU='
-CHANNEL_SECRET = '45688ed1d0a5baedf918f7cee6dbb04f'
-OPENAI_API_KEY = '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'
-
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi(os.getenv(CHANNEL_ACCESS_TOKEN))
+line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # Channel Secret
-handler = WebhookHandler(os.getenv(CHANNEL_SECRET))
+handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 # OPENAI API Key初始化設定
-openai.api_key = os.getenv(OPENAI_API_KEY)
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 def GPT_response(text):
